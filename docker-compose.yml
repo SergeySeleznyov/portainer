@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  portainer:
+    image: localhost:8082/portainer/portainer-ce:latest
+    container_name: portainer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data:/data
+    ports:
+      - '9000:9000'
+      - '9443:9443'
+    restart: on-failure
